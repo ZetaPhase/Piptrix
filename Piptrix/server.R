@@ -11,16 +11,10 @@ library(shiny)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
+  output$home <- renderUI({
+    str1 <- paste("Piptrix is an open-source web-based matrix calculator built with R Shiny that provides many different features.")
+    str2 <- paste("This analyzer was built by Xeliot from ZetaPhase Technologies.")
+    str3 <- paste("If you're a developer, feel free to check out the source code on GitHub from the link below!.")
+    HTML(paste(str1, str2, str3, sep='<br/>'))
   })
-  
 })
