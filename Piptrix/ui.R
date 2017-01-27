@@ -26,5 +26,18 @@ shinyUI(
                    tags$a(href="https://zetaphase.github.io/", "Visit the ZetaPhase Technologies website")
                  )
                )
+             ),
+             tabPanel(
+               "Multiply"
+             ),
+             tabPanel(
+               "Add"
+             ),
+             tabPanel(
+               "Inverse"
+             ),
+             tabPanel(
+               "Determinant"
              )
-  ))
+  )
+)
