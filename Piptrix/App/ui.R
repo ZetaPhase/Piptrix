@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(shinyIncubator)
 
 # Define UI for application that draws a histogram
 shinyUI(
@@ -28,10 +29,32 @@ shinyUI(
                )
              ),
              tabPanel(
-               "Multiply"
+               "Multiply",
+               sidebarPanel(
+                 fluidRow(
+                   column(6, fluidRow(column(5, numericInput("nrow1", "Rows", 2,1,10)),
+                            column(5, numericInput("ncol1", "Columns", 2,2,10))),
+                   uiOutput("inmatrix1")),
+                   column(6, fluidRow(column(5, numericInput("nrow2", "Rows", 2,1,10)),
+                            column(5, numericInput("ncol2", "Columns", 2,2,10))),
+                   uiOutput("inmatrix2"))
+                 ),
+                 width=10
+               ),
+               mainPanel(
+                 tableOutput("showtable")
+               )
              ),
              tabPanel(
-               "Add"
+               "Add",
+               sidebarPanel(
+                 fluidRow(
+                   column(5,
+                          numericInput('pcat', 'Primary', 2,1,10)),
+                   column(5,
+                          numericInput('smodel', 'Statistical', 2,1,10))
+                 )
+               )
              ),
              tabPanel(
                "Inverse"

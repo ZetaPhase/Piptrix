@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(shinyIncubator)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -17,4 +18,14 @@ shinyServer(function(input, output) {
     str3 <- paste("If you're a developer, feel free to check out the source code on GitHub from the link below!.")
     HTML(paste(str1, str2, str3, sep='<br/>'))
   })
+  
+  output$inmatrix1 <- renderUI({
+    #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
+    matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow1,ncol=input$ncol1)))
+  })
+  output$inmatrix2 <- renderUI({
+    #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
+    matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow2,ncol=input$ncol2)))
+  })
+  output$showtable <- renderTable({input$tbl})
 })
