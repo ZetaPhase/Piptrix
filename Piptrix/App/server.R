@@ -23,11 +23,11 @@ shinyServer(function(input, output) {
     #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
     print(input$tbl)
     print(matrix(input$tbl, input$nrow1, byrow=TRUE))
-    matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow1,ncol=input$ncol1)))
+    matrixInput("tbl1", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow1,ncol=input$ncol1)))
   })
   output$inmatrix2 <- renderUI({
     #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
-    matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow2,ncol=input$ncol2)))
+    matrixInput("tbl2", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow2,ncol=input$ncol2)))
   })
   output$showtable <- renderTable({input$tbl})
 })
