@@ -21,6 +21,8 @@ shinyServer(function(input, output) {
   
   output$inmatrix1 <- renderUI({
     #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
+    print(input$tbl)
+    print(matrix(input$tbl, input$nrow1, byrow=TRUE))
     matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow1,ncol=input$ncol1)))
   })
   output$inmatrix2 <- renderUI({

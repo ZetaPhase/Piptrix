@@ -39,7 +39,7 @@ shinyUI(
                             column(5, numericInput("ncol2", "Columns", 2,2,10))),
                    uiOutput("inmatrix2"))
                  ),
-                 width=10
+                 width=8
                ),
                mainPanel(
                  tableOutput("showtable")
@@ -57,7 +57,9 @@ shinyUI(
                )
              ),
              tabPanel(
-               "Inverse"
+               "Inverse",
+               mainPanel(
+                 matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=4,ncol=4))))
              ),
              tabPanel(
                "Determinant"
