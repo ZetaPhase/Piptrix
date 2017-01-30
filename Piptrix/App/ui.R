@@ -42,7 +42,10 @@ shinyUI(
                  width=8
                ),
                mainPanel(
-                 tableOutput("showtable")
+                 fluidRow(
+                   column(4, tableOutput("showtable1")),
+                   column(4, tableOutput("showtable2"))
+                 )
                )
              ),
              tabPanel(
