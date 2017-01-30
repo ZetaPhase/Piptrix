@@ -21,7 +21,7 @@ shinyServer(function(input, output) {
   
   output$inmatrix1 <- renderUI({
     #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
-    matrixInput("tbl1", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow1,ncol=input$ncol1)))
+    matrixInput("mtbl1", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow1,ncol=input$ncol1)))
     #print("matrix1")
     #print(matrix(input$tbl1, input$nrow1, byrow=TRUE))
   })
@@ -29,17 +29,17 @@ shinyServer(function(input, output) {
     #if(is.null(input$tbl)) return(matrix(0,nrow=2,ncol=2))
     #print("matrix1")
     #print(matrix(input$tbl1, input$nrow1, byrow=TRUE))
-    matrixInput("tbl2", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow2,ncol=input$ncol2)))
+    matrixInput("mtbl2", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow2,ncol=input$ncol2)))
   })
-  output$showtable1 <- renderTable({input$tbl1}, include.rownames=FALSE, include.colnames=FALSE)
-  output$showtable2 <- renderTable({input$tbl2}, include.rownames=FALSE, include.colnames=FALSE)
-  output$multiplyResult <- renderTable({matrix(input$tbl1, nrow=input$nrow1)%*%matrix(input$tbl2, nrow=input$nrow2)}, include.rownames=FALSE, include.colnames=FALSE)
+  output$multiplyTable1 <- renderTable({input$mtbl1}, include.rownames=FALSE, include.colnames=FALSE)
+  output$multiplyTable2 <- renderTable({input$mtbl2}, include.rownames=FALSE, include.colnames=FALSE)
+  output$multiplyResult <- renderTable({matrix(input$mtbl1, nrow=input$nrow1)%*%matrix(input$mtbl2, nrow=input$nrow2)}, include.rownames=FALSE, include.colnames=FALSE)
   output$multiply <- renderUI({
-    fluidRow(column(round(input$ncol1/2.0), tableOutput("showtable1")),
+    fluidRow(column(round(input$ncol1/2.0), tableOutput("multiplyTable1")),
              column(1, tags$img(src="https://img.clipartfest.com/c557392277f1546e726d9cf4fabd4070_download-multiplication-symbol-multiplication-symbol-clip-art_476-500.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$nrow1), "px;", sep=""))),
-             column(ceiling(input$ncol2/2.0), tableOutput("showtable2")),
+             column(round(input$ncol2/2.0), tableOutput("multiplyTable2")),
              column(1, tags$img(src="http://backpackbeginnings.org/wp-content/uploads/2015/03/Equal-sign-250x180.png", width=25, height=25, style=paste("margin-top: ", as.integer(9*input$nrow1), "px;", sep=""))),
-             column(4, tableOutput("multiplyResult")))
+             column(5, tableOutput("multiplyResult")))
     
   })
 })
