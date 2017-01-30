@@ -32,5 +32,5 @@ shinyServer(function(input, output) {
     matrixInput("tbl2", "Enter Data", as.data.frame(matrix(0,nrow=input$nrow2,ncol=input$ncol2)))
   })
   output$showtable1 <- renderTable({input$tbl1}, include.rownames=FALSE, include.colnames=FALSE)
-  output$showtable2 <- renderTable({input$tbl2})
+  output$showtable2 <- renderTable({input$tbl2}, include.rownames=FALSE, include.colnames=FALSE)
 })
