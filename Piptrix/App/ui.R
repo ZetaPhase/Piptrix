@@ -40,12 +40,11 @@ shinyUI(
                             column(5, numericInput("ncol2", "Columns", 2,2,10))),
                    uiOutput("inmatrix2"))
                  ),
-                 width=8
+                 width=10
                ),
                mainPanel(
                  fluidRow(
-                   column(4, tableOutput("showtable1")),
-                   column(4, tableOutput("showtable2"))
+                   uiOutput("multiply")
                  )
                )
              ),
