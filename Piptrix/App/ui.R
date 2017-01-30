@@ -13,6 +13,7 @@ library(shinyIncubator)
 # Define UI for application that draws a histogram
 shinyUI(
   navbarPage("Piptrix",
+             theme="bootstrap.css",
              tabPanel(
                "Home",
                sidebarLayout(
