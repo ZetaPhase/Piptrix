@@ -34,8 +34,10 @@ shinyServer(function(input, output) {
   output$showtable1 <- renderTable({input$tbl1}, include.rownames=FALSE, include.colnames=FALSE)
   output$showtable2 <- renderTable({input$tbl2}, include.rownames=FALSE, include.colnames=FALSE)
   output$multiply <- renderUI({
-    fluidRow(column(as.integer(input$ncol1/2.0), tableOutput("showtable1")),
-             column(1, tags$img(src="https://img.clipartfest.com/c557392277f1546e726d9cf4fabd4070_download-multiplication-symbol-multiplication-symbol-clip-art_476-500.png", width=25, height=25, style="margin-top: 15px;")),
-             column(input$ncol2, tableOutput("showtable2")))
+    fluidRow(column(ceiling(input$ncol1/2.0), tableOutput("showtable1")),
+             column(1, tags$img(src="https://img.clipartfest.com/c557392277f1546e726d9cf4fabd4070_download-multiplication-symbol-multiplication-symbol-clip-art_476-500.png", width=25, height=25, style=paste("margin-top: ", as.integer(9*input$nrow1), "px;", sep=""))),
+             column(ceiling(input$ncol2/2.0), tableOutput("showtable2")),
+             column(1, tags$img(src="http://backpackbeginnings.org/wp-content/uploads/2015/03/Equal-sign-250x180.png", width=25, height=25, style=paste("margin-top: ", as.integer(9*input$nrow1), "px;", sep=""))))
+    
   })
 })
