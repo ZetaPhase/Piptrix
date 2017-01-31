@@ -73,12 +73,12 @@ shinyUI(
                  "Subtract",
                  sidebarPanel(
                    fluidRow(
-                     column(6, fluidRow(column(5, numericInput("anrow1", "Rows", 2,1,10)),
-                                        column(5, numericInput("ancol1", "Columns", 2,2,10))),
-                            uiOutput("amatrix1")),
-                     column(6, fluidRow(column(5, numericInput("anrow2", "Rows", 2,1,10)),
-                                        column(5, numericInput("ancol2", "Columns", 2,2,10))),
-                            uiOutput("amatrix2"))
+                     column(6, fluidRow(column(5, numericInput("snrow1", "Rows", 2,1,10)),
+                                        column(5, numericInput("sncol1", "Columns", 2,2,10))),
+                            uiOutput("smatrix1")),
+                     column(6, fluidRow(column(5, numericInput("snrow2", "Rows", 2,1,10)),
+                                        column(5, numericInput("sncol2", "Columns", 2,2,10))),
+                            uiOutput("smatrix2"))
                    ),
                    width=10
                  ),
