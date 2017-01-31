@@ -40,6 +40,8 @@ shinyServer(function(input, output) {
   output$addTable2 <- renderTable({input$atbl2}, include.rownames=FALSE, include.colnames=FALSE)
   output$addResult <- renderTable({matrix(input$atbl1, nrow=input$anrow1)+matrix(input$atbl2, nrow=input$anrow2)}, include.rownames=FALSE, include.colnames=FALSE)
   
+  output$subtractResult <- renderTable({matrix(input$atbl1, nrow=input$anrow1)-matrix(input$atbl2, nrow=input$anrow2)}, include.rownames=FALSE, include.colnames=FALSE)
+  
   output$multiply <- renderUI({
     fluidRow(column(round(input$mncol1/2.0), tableOutput("multiplyTable1")),
              column(1, tags$img(src="https://img.clipartfest.com/c557392277f1546e726d9cf4fabd4070_download-multiplication-symbol-multiplication-symbol-clip-art_476-500.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$mnrow1), "px;", sep=""))),
@@ -54,5 +56,12 @@ shinyServer(function(input, output) {
              column(round(input$mncol2/2.0), tableOutput("addTable2")),
              column(1, tags$img(src="http://backpackbeginnings.org/wp-content/uploads/2015/03/Equal-sign-250x180.png", width=25, height=25, style=paste("margin-top: ", as.integer(9*input$mnrow1), "px;", sep=""))),
              column(5, tableOutput("addResult")))
+  })
+  output$subtract <- renderUI({
+    fluidRow(column(round(input$ancol1/2.0), tableOutput("addTable1")),
+             column(1, tags$img(src="http://www.clipartkid.com/images/239/primary-add-sk584F-clipart.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$mnrow1), "px;", sep=""))),
+             column(round(input$mncol2/2.0), tableOutput("addTable2")),
+             column(1, tags$img(src="http://backpackbeginnings.org/wp-content/uploads/2015/03/Equal-sign-250x180.png", width=25, height=25, style=paste("margin-top: ", as.integer(9*input$mnrow1), "px;", sep=""))),
+             column(5, tableOutput("subtractResult")))
   })
 })

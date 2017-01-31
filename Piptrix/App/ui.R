@@ -48,22 +48,44 @@ shinyUI(
                  )
                )
              ),
-             tabPanel(
-               "Add",
-               sidebarPanel(
-                 fluidRow(
-                   column(6, fluidRow(column(5, numericInput("anrow1", "Rows", 2,1,10)),
-                                      column(5, numericInput("ancol1", "Columns", 2,2,10))),
-                          uiOutput("amatrix1")),
-                   column(6, fluidRow(column(5, numericInput("anrow2", "Rows", 2,1,10)),
-                                      column(5, numericInput("ancol2", "Columns", 2,2,10))),
-                          uiOutput("amatrix2"))
+             navbarMenu(
+               "Add/Subtract",
+               tabPanel(
+                 "Add",
+                 sidebarPanel(
+                   fluidRow(
+                     column(6, fluidRow(column(5, numericInput("anrow1", "Rows", 2,1,10)),
+                                        column(5, numericInput("ancol1", "Columns", 2,2,10))),
+                            uiOutput("amatrix1")),
+                     column(6, fluidRow(column(5, numericInput("anrow2", "Rows", 2,1,10)),
+                                        column(5, numericInput("ancol2", "Columns", 2,2,10))),
+                            uiOutput("amatrix2"))
+                   ),
+                   width=10
                  ),
-                 width=10
+                 mainPanel(
+                   fluidRow(
+                     uiOutput("add")
+                   )
+                 )
                ),
-               mainPanel(
-                 fluidRow(
-                   uiOutput("add")
+               tabPanel(
+                 "Subtract",
+                 sidebarPanel(
+                   fluidRow(
+                     column(6, fluidRow(column(5, numericInput("anrow1", "Rows", 2,1,10)),
+                                        column(5, numericInput("ancol1", "Columns", 2,2,10))),
+                            uiOutput("amatrix1")),
+                     column(6, fluidRow(column(5, numericInput("anrow2", "Rows", 2,1,10)),
+                                        column(5, numericInput("ancol2", "Columns", 2,2,10))),
+                            uiOutput("amatrix2"))
+                   ),
+                   width=10
+                 ),
+                 mainPanel(
+                   fluidRow(
+                     uiOutput("subtract")
+                   )
                  )
                )
              ),
