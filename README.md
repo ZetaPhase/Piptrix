@@ -17,9 +17,9 @@ Stay tuned for release of full release of Web-Applet.
 ###Quick Start for Developers
 
 This web applet was built with R Shiny.
-- [More about R Shiny](https://shiny.rstudio.com/)
+- [More about R Shiny](https://shiny.rstudio.com/)  
 R is required for R shiny
-- [Download R](https://cran.r-project.org/mirrors.html)
+- [Download R](https://cran.r-project.org/mirrors.html)  
 R Studio is a recommended IDE when programming with R
 - [Download R Studio](https://www.rstudio.com/products/rstudio/download/)
 
