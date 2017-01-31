@@ -57,7 +57,7 @@ shinyServer(function(input, output) {
   })
   output$subtract <- renderUI({
     fluidRow(column(round(input$sncol1/2.0), tableOutput("subtractTable1")),
-             column(1, tags$img(src="http://www.clipartkid.com/images/239/primary-add-sk584F-clipart.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$snrow1), "px;", sep=""))),
+             column(1, tags$img(src="http://www.clker.com/cliparts/3/6/4/b/12914263301547445417green-plus-minus-hi-hi.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$snrow1), "px;", sep=""))),
              column(round(input$sncol2/2.0), tableOutput("subtractTable2")),
              column(1, tags$img(src="http://backpackbeginnings.org/wp-content/uploads/2015/03/Equal-sign-250x180.png", width=25, height=25, style=paste("margin-top: ", as.integer(9*input$snrow1), "px;", sep=""))),
              column(5, tableOutput("subtractResult")))
