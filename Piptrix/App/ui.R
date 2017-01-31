@@ -33,12 +33,12 @@ shinyUI(
                "Multiply",
                sidebarPanel(
                  fluidRow(
-                   column(6, fluidRow(column(5, numericInput("nrow1", "Rows", 2,1,10)),
-                            column(5, numericInput("ncol1", "Columns", 2,2,10))),
-                   uiOutput("inmatrix1")),
-                   column(6, fluidRow(column(5, numericInput("nrow2", "Rows", 2,1,10)),
-                            column(5, numericInput("ncol2", "Columns", 2,2,10))),
-                   uiOutput("inmatrix2"))
+                   column(6, fluidRow(column(5, numericInput("mnrow1", "Rows", 2,1,10)),
+                            column(5, numericInput("mncol1", "Columns", 2,2,10))),
+                   uiOutput("mmatrix1")),
+                   column(6, fluidRow(column(5, numericInput("mnrow2", "Rows", 2,1,10)),
+                            column(5, numericInput("mncol2", "Columns", 2,2,10))),
+                   uiOutput("mmatrix2"))
                  ),
                  width=10
                ),
@@ -52,10 +52,18 @@ shinyUI(
                "Add",
                sidebarPanel(
                  fluidRow(
-                   column(5,
-                          numericInput('pcat', 'Primary', 2,1,10)),
-                   column(5,
-                          numericInput('smodel', 'Statistical', 2,1,10))
+                   column(6, fluidRow(column(5, numericInput("anrow1", "Rows", 2,1,10)),
+                                      column(5, numericInput("ancol1", "Columns", 2,2,10))),
+                          uiOutput("amatrix1")),
+                   column(6, fluidRow(column(5, numericInput("anrow2", "Rows", 2,1,10)),
+                                      column(5, numericInput("ancol2", "Columns", 2,2,10))),
+                          uiOutput("amatrix2"))
+                 ),
+                 width=10
+               ),
+               mainPanel(
+                 fluidRow(
+                   uiOutput("add")
                  )
                )
              ),
