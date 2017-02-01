@@ -81,8 +81,14 @@ shinyUI(
              ),
              tabPanel(
                "Inverse",
-               mainPanel(
-                 matrixInput("tbl", "Enter Data", as.data.frame(matrix(0,nrow=4,ncol=4))))
+               sidebarPanel(
+                 fluidRow(
+                   column(6, fluidRow(column(5, numericInput("inrow", "Rows", 2,1,10)),
+                                      column(5, numericInput("incol", "Columns", 2,2,10))),
+                          uiOutput("imatrix"))
+                 ),
+                 width=8
+               )
              ),
              tabPanel(
                "Determinant"
