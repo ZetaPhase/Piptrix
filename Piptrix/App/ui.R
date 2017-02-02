@@ -97,6 +97,9 @@ shinyUI(
              ),
              tabPanel(
                "Determinant"
+             ),
+             tabPanel(
+               "Transpose"
              )
   )
 )
