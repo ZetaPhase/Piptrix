@@ -72,6 +72,6 @@ shinyServer(function(input, output) {
     tags$br
     fluidRow(column(round(input$incol/2.0), tableOutput("inverseTable")),
              column(1, tags$img(src="http://www.clker.com/cliparts/3/6/4/b/12914263301547445417green-plus-minus-hi-hi.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$snrow1), "px;", sep=""))),
-             column(round(input$incol/2.0), tableOutput("inverseResult")))
+             column(5, tableOutput("inverseResult")))
   })
 })
