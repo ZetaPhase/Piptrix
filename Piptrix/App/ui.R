@@ -88,6 +88,11 @@ shinyUI(
                           uiOutput("imatrix"))
                  ),
                  width=8
+               ),
+               mainPanel(
+                 fluidRow(
+                   uiOutput("inverse")
+                 )
                )
              ),
              tabPanel(
