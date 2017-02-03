@@ -30,6 +30,9 @@ shinyServer(function(input, output) {
   output$imatrix <- renderUI({
     matrixInput("itbl", "Enter Data", as.data.frame(matrix(0, nrow=input$inrow,ncol=input$incol)))
   })
+  output$dmatrix <- renderUI({
+    matrixInput("dtbl", "Enter Data", as.data.frame(matrix(0, nrow=input$dnrow,ncol=input$dnrow)))
+  })
   
   output$multiplyTable1 <- renderTable({input$mtbl1}, include.rownames=FALSE, include.colnames=FALSE)
   output$multiplyTable2 <- renderTable({input$mtbl2}, include.rownames=FALSE, include.colnames=FALSE)
@@ -45,6 +48,8 @@ shinyServer(function(input, output) {
   
   output$inverseTable <- renderTable({input$itbl}, include.rownames=FALSE, include.colnames=FALSE)
   output$inverseResult <- renderTable({solve(matrix(input$itbl, nrow=input$inrow))}, include.rownames=FALSE, include.colnames=FALSE)
+  
+  output$determinantTable <-
   
   output$multiply <- renderUI({
     fluidRow(column(round(input$mncol1/2.0), tableOutput("multiplyTable1")),
