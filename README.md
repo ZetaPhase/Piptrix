@@ -10,9 +10,7 @@ Piptrix is an clean, adless, web-based matrix calculator built with R Shiny that
 - inverse
 - transpose
 - determinant
-- and more.
-
-Stay tuned for release of full release of Web-Applet.
+- etc.
 
 ###Quick Start for Developers
 
