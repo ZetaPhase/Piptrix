@@ -77,7 +77,15 @@ shinyServer(function(input, output) {
   output$inverse <- renderUI({
     tags$br
     fluidRow(column(round(input$incol/2.0), tableOutput("inverseTable")),
-             column(1, tags$img(src="http://www.clker.com/cliparts/3/6/4/b/12914263301547445417green-plus-minus-hi-hi.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$snrow1), "px;", sep=""))),
+             column(1, tags$img(src="http://www.clker.com/cliparts/3/6/4/b/12914263301547445417green-plus-minus-hi-hi.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$inrow1), "px;", sep=""))),
              column(5, tableOutput("inverseResult")))
+  })
+  output$determinant <- renderUI({
+    tags$br
+    fluidRow(
+      column(round(input$dncol/2.0), tableOutput("determinantTable")),
+      column(1, tags$img(src="http://www.clker.com/cliparts/3/6/4/b/12914263301547445417green-plus-minus-hi-hi.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$dnrow1), "px;", sep=""))),
+      column(5, tableOutput("determinantResult"))
+    )
   })
 })
