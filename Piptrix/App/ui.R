@@ -112,7 +112,22 @@ shinyUI(
                )
              ),
              tabPanel(
-               "Transpose"
+               "Transpose",
+               sidebarPanel(
+                 fluidRow(
+                   column(6, fluidRow(column(5, numericInput("tnrow", "Rows", 2,1,10)),
+                                      column(5, numericInput("tncol", "Columns", 2,2,10))),
+                          uiOutput("tmatrix")
+                          )
+                   
+                 ),
+                 width=8
+               ),
+               mainPanel(
+                 fluidRow(
+                   uiOutput("transpose")
+                 )
+               )
              )
   )
 )
