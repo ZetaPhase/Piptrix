@@ -56,7 +56,7 @@ shinyServer(function(input, output) {
   output$determinantResult <- renderPrint({cat(det(matrix(input$dtbl, nrow=input$dnrow)))})
   
   output$transposeTable <- renderTable({input$ttbl}, include.rownames=FALSE, include.colnames=FALSE)
-  output$transposeResult <- renderPrint({cat(t(matrix(input$ttbl, nrow=input$tnrow)))})
+  output$transposeResult <- renderTable({t(matrix(input$ttbl, nrow=input$tnrow))}, include.rownames=FALSE, include.colnames=FALSE)
   
   output$multiply <- renderUI({
     fluidRow(column(round(input$mncol1/2.0), tableOutput("multiplyTable1")),
@@ -90,6 +90,13 @@ shinyServer(function(input, output) {
     fluidRow(
       column(2, tags$p("Determinant:")),
       column(5, tableOutput("determinantResult"))
+    )
+  })
+  output$transpose <- renderUI({
+    tags$br
+    fluidRow(
+      column(2, tags$p("Transpose:")),
+      column(5, tableOutput("transposeResult"))
     )
   })
 })
