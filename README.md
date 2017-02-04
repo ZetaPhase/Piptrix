@@ -1,6 +1,9 @@
 # Piptrix
 Make matrix operations easy!
 
+Piptrix Now Available!  
+[Link to Web Applet](https://xeliot.shinyapps.io/Piptrix/)
+
 ###About
 
 Piptrix is an clean, adless, web-based matrix calculator built with R Shiny that provides many different features
