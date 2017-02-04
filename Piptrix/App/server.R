@@ -31,7 +31,10 @@ shinyServer(function(input, output) {
     matrixInput("itbl", "Enter Data", as.data.frame(matrix(0, nrow=input$inrow,ncol=input$incol)))
   })
   output$dmatrix <- renderUI({
-    matrixInput("dtbl", "Enter Data", as.data.frame(matrix(0, nrow=input$dnrow,ncol=input$dnrow)))
+    matrixInput("dtbl", "Enter Data", as.data.frame(matrix(0, nrow=input$dnrow,ncol=input$dncol)))
+  })
+  output$tmatrix <- renderUI({
+    matrixInput("ttbl", "Enter Data", as.data.frame(matrix(0, nrow=input$tncol,ncol=input$tncol)))
   })
   
   output$multiplyTable1 <- renderTable({input$mtbl1}, include.rownames=FALSE, include.colnames=FALSE)
