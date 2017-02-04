@@ -50,7 +50,7 @@ shinyServer(function(input, output) {
   output$inverseResult <- renderTable({solve(matrix(input$itbl, nrow=input$inrow))}, include.rownames=FALSE, include.colnames=FALSE)
   
   output$determinantTable <- renderTable({input$dtbl}, include.rownames=FALSE, include.colnames=FALSE)
-  output$determinantResult <- renderPrint({det(matrix(input$dtbl, nrow=input$dnrow))}, include.rownames=FALSE, include.colnames=FALSE)
+  output$determinantResult <- renderPrint({cat(det(matrix(input$dtbl, nrow=input$dnrow)))})
   
   output$multiply <- renderUI({
     fluidRow(column(round(input$mncol1/2.0), tableOutput("multiplyTable1")),
@@ -83,8 +83,7 @@ shinyServer(function(input, output) {
   output$determinant <- renderUI({
     tags$br
     fluidRow(
-      column(round(input$dncol/2.0), tableOutput("determinantTable")),
-      column(1, tags$img(src="http://www.clker.com/cliparts/3/6/4/b/12914263301547445417green-plus-minus-hi-hi.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$dnrow1), "px;", sep=""))),
+      column(2, tags$p("Determinant:")),
       column(5, tableOutput("determinantResult"))
     )
   })

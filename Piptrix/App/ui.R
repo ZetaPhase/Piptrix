@@ -96,7 +96,20 @@ shinyUI(
                )
              ),
              tabPanel(
-               "Determinant"
+               "Determinant",
+               sidebarPanel(
+                 fluidRow(
+                   column(6, fluidRow(column(5, numericInput("dnrow", "Rows", 2,1,10)),
+                                      column(5, numericInput("dncol", "Columns", 2,2,10))),
+                          uiOutput("dmatrix"))
+                 ),
+                 width=8
+               ),
+               mainPanel(
+                 fluidRow(
+                   uiOutput("determinant")
+                 )
+               )
              ),
              tabPanel(
                "Transpose"
