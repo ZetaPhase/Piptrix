@@ -55,6 +55,9 @@ shinyServer(function(input, output) {
   output$determinantTable <- renderTable({input$dtbl}, include.rownames=FALSE, include.colnames=FALSE)
   output$determinantResult <- renderPrint({cat(det(matrix(input$dtbl, nrow=input$dnrow)))})
   
+  output$transposeTable <- renderTable({input$ttbl}, include.rownames=FALSE, include.colnames=FALSE)
+  output$transposeResult <- renderPrint({cat(t(matrix(input$ttbl, nrow=input$tnrow)))})
+  
   output$multiply <- renderUI({
     fluidRow(column(round(input$mncol1/2.0), tableOutput("multiplyTable1")),
              column(1, tags$img(src="https://img.clipartfest.com/c557392277f1546e726d9cf4fabd4070_download-multiplication-symbol-multiplication-symbol-clip-art_476-500.png", width=20, height=20, style=paste("margin-top: ", as.integer(10*input$mnrow1), "px;", sep=""))),
